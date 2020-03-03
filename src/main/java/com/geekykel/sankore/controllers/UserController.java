@@ -17,15 +17,16 @@ import java.util.List;
  * Created by Kelvin on 3/02/2020
  */
 @Controller
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
     UserService userService;
 
-//    @RequestMapping("/")
-//    public String home() {
-//        return "list-users";
-//    }
+    @RequestMapping("/")
+    public String home() {
+        return "index";
+    }
 
     @GetMapping("/list")
     public String listUsers(Model theModel) {
@@ -59,7 +60,7 @@ public class UserController {
         // save the user using our service
         userService.saveUser(user);
 
-        return "redirect:/list";
+        return "redirect:/users/list";
     }
 
     @GetMapping("/updateUserForm")
@@ -75,13 +76,13 @@ public class UserController {
         return "user-form";
     }
 
-    @GetMapping("/delete")
+    @GetMapping("/deleteUser")
     public String deleteUser(@RequestParam("userId") long id) {
 
         // delete the user
         userService.deleteUser(id);
 
-        return "redirect:/list";
+        return "redirect:/users/list";
     }
     
 
