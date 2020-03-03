@@ -1,7 +1,6 @@
 package com.geekykel.sankore.entities;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -15,10 +14,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Size(min = 1, message = "*required")
+    @Size(min = 3, message = "more than 3 letters is required")
+    @NotNull(message = "*required")
     private String firstName;
 
-    @Size(min = 1, message = "*required")
+    @Size(min = 3, message = "more than 3 letters is required")
+    @NotNull(message = "*required")
     private String lastName;
 
     @NotNull(message = "*required")
