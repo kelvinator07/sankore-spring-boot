@@ -18,7 +18,7 @@
 	
 	<div id="wrapper">
 		<div id="header">
-			<h2>Sankore Web Application</h2>
+			<h2>Sankore Spring Boot Web Application</h2>
 		</div>
 	</div>
 
@@ -27,7 +27,7 @@
 	
 		<form:form action="saveUser" modelAttribute="user" method="POST">
 
-			<!-- need to associate this data with user id -->
+			<!-- associate this data with current user id -->
 			<form:hidden path="id" />
 			<%--<form:errors path="*" cssClass="errorblock" element="div" />--%>
 			<table>
@@ -67,7 +67,7 @@
 		<div style="clear; both;"></div>
 		
 		<p>
-			<a href="list">Back to List</a>
+			<a href="/users/list">Back to List</a>
 		</p>
 	
 	</div>

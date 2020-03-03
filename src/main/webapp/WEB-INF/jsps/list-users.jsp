@@ -18,7 +18,7 @@
 
 	<div id="wrapper">
 		<div id="header">
-			<h2>Sankore Web Application</h2>
+			<h2>Sankore Spring Boot Web Application</h2>
 		</div>
 	</div>
 	
@@ -41,37 +41,52 @@
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Gender</th>
+					<th>Action</th>
 				</tr>
-				
-				<!-- loop over and print users -->
-				<c:forEach var="tempUser" items="${users}">
-				
-					<!-- construct an "update" link with user id -->
-					<c:url var="updateLink" value="/updateUserForm">
-						<c:param name="userId" value="${tempUser.id}" />
-					</c:url>					
 
-					<!-- construct an "delete" link with user id -->
-					<c:url var="deleteLink" value="/delete">
-						<c:param name="userId" value="${tempUser.id}" />
-					</c:url>					
-					
-					<tr>
-						<td> ${tempUser.firstName} </td>
-						<td> ${tempUser.lastName} </td>
-						<td> ${tempUser.gender} </td>
-						
-						<td>
-							<!-- display the update link -->
-							<a href="${updateLink}">Update</a>
-							|
-							<a href="${deleteLink}"
-							   onclick="if (!(confirm('Are you sure you want to delete this user?'))) return false">Delete</a>
-						</td>
-						
-					</tr>
+				<c:choose>
+					<c:when test="${users.size() == 0}">
+						<tr>
+							<td colspan="4"> User List is currently empty </td>
+						</tr>
+						<%--<p>User List is currently empty</p>--%>
+					</c:when>
+					<c:otherwise>
+
+						<!-- loop over and print users -->
+						<c:forEach var="tempUser" items="${users}">
+
+							<!-- construct an "update" link with user id -->
+							<c:url var="updateLink" value="/users/updateUserForm">
+								<c:param name="userId" value="${tempUser.id}" />
+							</c:url>
+
+							<!-- construct an "delete" link with user id -->
+							<c:url var="deleteLink" value="/users/deleteUser">
+								<c:param name="userId" value="${tempUser.id}" />
+							</c:url>
+
+							<tr>
+								<td> ${tempUser.firstName} </td>
+								<td> ${tempUser.lastName} </td>
+								<td> ${tempUser.gender} </td>
+
+								<td>
+									<!-- display the update link -->
+									<a href="${updateLink}">Update</a>
+									|
+									<a href="${deleteLink}"
+									   onclick="if (!(confirm('Are you sure you want to delete this user?'))) return false">Delete</a>
+								</td>
+
+							</tr>
+
+						</c:forEach>
+
+					</c:otherwise>
+				</c:choose>
 				
-				</c:forEach>
+
 						
 			</table>
 				
