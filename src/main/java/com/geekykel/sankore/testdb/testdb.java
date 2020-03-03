@@ -3,6 +3,9 @@ package com.geekykel.sankore.testdb;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+/**
+ * Created by Kelvin on 3/02/2020
+ */
 public class testdb {
 
     public static void main(String[] args) {
