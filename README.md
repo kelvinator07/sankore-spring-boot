@@ -2,7 +2,7 @@
 
 ## SET UP INSTRUCTIONS
 
-1. Import Project In Your Favorite IDE as a Maven Project.
+1. Import Project Into Your Favorite IDE as a Maven Project.
 
 2. Create Database in PostgreSQL client (PgAdmin) with name `sankoredb`.
 

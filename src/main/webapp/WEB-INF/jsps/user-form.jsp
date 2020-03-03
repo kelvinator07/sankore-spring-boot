@@ -33,20 +33,19 @@
 			<table>
 				<tbody>
 					<tr>
-						<td><label>First name:</label></td>
+						<td><form:label path="firstName">First name:</form:label></td>
 						<td><form:input path="firstName" /></td>
 						<td><form:errors path="firstName" cssClass="error" /></td>
 					</tr>
 				
 					<tr>
-						<td><label>Last name:</label></td>
+						<td><form:label path="lastName">Last name:</form:label></td>
 						<td><form:input path="lastName" /></td>
 						<td><form:errors path="lastName" cssClass="error" /></td>
 					</tr>
 
 					<tr>
-						<td><label>Gender:</label></td>
-						<%--<td><form:input path="gender" /></td>--%>
+						<td><form:label path="gender">Gender:</form:label></td>
 						<td>Male<form:radiobutton path="gender" value="male"/></td>
 						<td>Female<form:radiobutton path="gender" value="female"/></td>
 						<td><form:errors path="gender" cssClass="error" /></td>
@@ -60,8 +59,7 @@
 				
 				</tbody>
 			</table>
-		
-		
+
 		</form:form>
 	
 		<div style="clear; both;"></div>
@@ -75,13 +73,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-

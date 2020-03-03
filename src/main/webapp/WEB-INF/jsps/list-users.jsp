@@ -32,8 +32,7 @@
 				   onclick="window.location.href='addUserForm'; return false;"
 				   class="add-button"
 			/>
-			<%--<a href="addUserForm">View All</a>--%>
-		
+
 			<!--  add our html table here -->
 		
 			<table>
@@ -45,11 +44,10 @@
 				</tr>
 
 				<c:choose>
-					<c:when test="${users.size() == 0}">
+					<c:when test="${users.size() <= 0}">
 						<tr>
-							<td colspan="4"> User List is currently empty </td>
+							<td colspan="4"> Users List is currently empty </td>
 						</tr>
-						<%--<p>User List is currently empty</p>--%>
 					</c:when>
 					<c:otherwise>
 
@@ -85,25 +83,13 @@
 
 					</c:otherwise>
 				</c:choose>
-				
-
 						
 			</table>
 				
 		</div>
 	
 	</div>
-	
 
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
